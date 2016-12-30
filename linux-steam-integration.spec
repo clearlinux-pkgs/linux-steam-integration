@@ -4,7 +4,7 @@
 #
 Name     : linux-steam-integration
 Version  : 0.3
-Release  : 2
+Release  : 3
 URL      : https://github.com/solus-project/linux-steam-integration/releases/download/v0.3/linux-steam-integration-0.3.tar.xz
 Source0  : https://github.com/solus-project/linux-steam-integration/releases/download/v0.3/linux-steam-integration-0.3.tar.xz
 Summary  : Common C library functions
@@ -32,8 +32,8 @@ bin components for the linux-steam-integration package.
 
 %build
 export LANG=C
-export SOURCE_DATE_EPOCH=1483026806
-%configure --disable-static --program-prefix=clr-
+export SOURCE_DATE_EPOCH=1483127491
+%configure --disable-static --program-prefix=clr-  --with-real-steam-binary=/usr/bin/steam
 make V=1  %{?_smp_mflags}
 
 %check
