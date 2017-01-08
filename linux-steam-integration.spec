@@ -4,7 +4,7 @@
 #
 Name     : linux-steam-integration
 Version  : 0.3
-Release  : 3
+Release  : 4
 URL      : https://github.com/solus-project/linux-steam-integration/releases/download/v0.3/linux-steam-integration-0.3.tar.xz
 Source0  : https://github.com/solus-project/linux-steam-integration/releases/download/v0.3/linux-steam-integration-0.3.tar.xz
 Summary  : Common C library functions
@@ -22,6 +22,7 @@ This is part of an effort by Solus to enhance Steam for everyone.
 %package bin
 Summary: bin components for the linux-steam-integration package.
 Group: Binaries
+Requires: s2tc-dev s2tc-dev32 compat-libpng-soname12-lib compat-libpng-soname12-lib32
 
 %description bin
 bin components for the linux-steam-integration package.
