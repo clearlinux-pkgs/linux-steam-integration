@@ -4,7 +4,7 @@
 #
 Name     : linux-steam-integration
 Version  : 0.3
-Release  : 5
+Release  : 6
 URL      : https://github.com/solus-project/linux-steam-integration/releases/download/v0.3/linux-steam-integration-0.3.tar.xz
 Source0  : https://github.com/solus-project/linux-steam-integration/releases/download/v0.3/linux-steam-integration-0.3.tar.xz
 Summary  : Common C library functions
