@@ -1,1 +1,1 @@
---program-prefix=clr-  --with-real-steam-binary=/usr/bin/steam
+-Dwith-steam-binary=/usr/bin/steam
