@@ -6,7 +6,7 @@
 #
 Name     : linux-steam-integration
 Version  : 0.7.2
-Release  : 12
+Release  : 13
 URL      : https://github.com/solus-project/linux-steam-integration/releases/download/v0.7.2/linux-steam-integration-0.7.2.tar.xz
 Source0  : https://github.com/solus-project/linux-steam-integration/releases/download/v0.7.2/linux-steam-integration-0.7.2.tar.xz
 Source99 : https://github.com/solus-project/linux-steam-integration/releases/download/v0.7.2/linux-steam-integration-0.7.2.tar.xz.asc
@@ -21,6 +21,17 @@ Requires: linux-steam-integration-locales = %{version}-%{release}
 BuildRequires : buildreq-meson
 BuildRequires : pkgconfig(check)
 BuildRequires : pkgconfig(gtk+-3.0)
+Patch1: 0001-Resync-po.patch
+Patch2: 0002-intercept-Allow-disabling-build-time-the-udev-redire.patch
+Patch3: 0003-Revert-intercept-Allow-disabling-build-time-the-udev.patch
+Patch4: 0004-Add-new-snapd-pulseaudio-script-workaround.patch
+Patch5: 0005-shim-When-in-snapd-mode-chdir-to-SNAP_USER_COMMON.patch
+Patch6: 0006-redirect-Add-new-override-on-getpwuid.patch
+Patch7: 0007-redirect-We-might-return-NULL-here.patch
+Patch8: 0008-Fix-incorrect-snap-name-fixes-issue-50.patch
+Patch9: 0009-shim-Remove-legacy-non-GLVND-path-support-for-snapd-.patch
+Patch10: 0010-intercept-Support-new-sonames-in-Feral-s-Tomb-Raider.patch
+Patch11: 0011-Add-StartupWMClass-to-lsi-steam.desktop.patch
 
 %description
 linux-steam-integration
@@ -75,13 +86,24 @@ locales components for the linux-steam-integration package.
 
 %prep
 %setup -q -n linux-steam-integration-0.7.2
+%patch1 -p1
+%patch2 -p1
+%patch3 -p1
+%patch4 -p1
+%patch5 -p1
+%patch6 -p1
+%patch7 -p1
+%patch8 -p1
+%patch9 -p1
+%patch10 -p1
+%patch11 -p1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1545392377
+export SOURCE_DATE_EPOCH=1545392709
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain -Dwith-steam-binary=/usr/bin/steam -Dwith-new-libcxx-abi=true -Dwith-frontend=true  builddir
 ninja -v -C builddir
 

@@ -1,0 +1,27 @@
+From c34938a43a9da7dea96abab9f27520ce61007236 Mon Sep 17 00:00:00 2001
+From: Ikey Doherty <ikey@solus-project.com>
+Date: Thu, 4 Jan 2018 21:06:30 +0000
+Subject: [linux-steam-integration 08/11] Fix incorrect snap name (fixes issue
+ #50)
+
+Signed-off-by: Ikey Doherty <ikey@solus-project.com>
+---
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index eff5f5d..7ee7b97 100644
+--- a/README.md
++++ b/README.md
+@@ -85,7 +85,7 @@ LSI may not yet be available for your distribution, however some community maint
+ To install the experimental snaps (`snapd` >= 2.29.4):
+ 
+     sudo snap install --edge solus-runtime-gaming
+-    sudo snap install --devmode --edge solus-runtime-gaming
++    sudo snap install --devmode --edge linux-steam-integration
+ 
+ ## Snap Support
+ 
+-- 
+2.20.0
+

@@ -1,0 +1,80 @@
+From a1c22351207da6a3c6cced00133828b9b1cfe9ff Mon Sep 17 00:00:00 2001
+From: Ikey Doherty <ikey@solus-project.com>
+Date: Sun, 24 Dec 2017 15:10:29 +0000
+Subject: [linux-steam-integration 04/11] Add new snapd pulseaudio script
+ workaround
+
+This is as yet untested, but the basic idea is that when games call out
+to `system("pulseaudio --check > /dev/null 2>&1")` we'll put our script
+in their way and unconditionally return 0. This is for games using libfmod,
+which will die when trying to execute pulseaudio right now.
+
+Signed-off-by: Ikey Doherty <ikey@solus-project.com>
+---
+ meson.build       |  3 +++
+ snapd/meson.build |  4 ++++
+ snapd/pulseaudio  | 12 ++++++++++++
+ src/shim/shim.c   |  3 +++
+ 4 files changed, 22 insertions(+)
+ create mode 100644 snapd/meson.build
+ create mode 100755 snapd/pulseaudio
+
+diff --git a/meson.build b/meson.build
+index 1b45f5c..832dc7b 100644
+--- a/meson.build
++++ b/meson.build
+@@ -87,6 +87,9 @@ endif
+ with_snap_support = get_option('with-snap-support')
+ if with_snap_support == true
+     cdata.set('HAVE_SNAPD_SUPPORT', '1')
++    with_fake_scripts_dir = join_paths(datadir, meson.project_name(), 'scripts')
++    cdata.set_quoted('FAKE_SCRIPTS_DIR', with_fake_scripts_dir)
++    subdir('snapd')
+     message('Enabling snapd support. Do NOT do this for distribution builds!')
+ endif
+ 
+diff --git a/snapd/meson.build b/snapd/meson.build
+new file mode 100644
+index 0000000..5f8187f
+--- /dev/null
++++ b/snapd/meson.build
+@@ -0,0 +1,4 @@
++install_data(
++    'pulseaudio',
++    install_dir: join_paths(with_fake_scripts_dir, 'pulseaudio'),
++)
+diff --git a/snapd/pulseaudio b/snapd/pulseaudio
+new file mode 100755
+index 0000000..1a97132
+--- /dev/null
++++ b/snapd/pulseaudio
+@@ -0,0 +1,12 @@
++#!/bin/bash
++
++# Work around games using libfmod which is determined to execute:
++# pulseaudio --check > /dev/null 2>&1
++
++if [[ ! -z "$1" ]]; then
++    if [[ "$1" == "--check" ]] ; then
++        exit 0
++    fi
++fi
++
++exec /usr/bin/pulseaudio $*
+diff --git a/src/shim/shim.c b/src/shim/shim.c
+index d15ced2..78f7eb1 100644
+--- a/src/shim/shim.c
++++ b/src/shim/shim.c
+@@ -229,6 +229,9 @@ static void shim_export_extra(const char *prefix)
+         shim_export_merge_vars("PATH", prefix, "/usr/bin");
+         shim_export_merge_vars("PATH", prefix, "/bin");
+ 
++        /* We require our PulseAudio fake script to be seen first. */
++        shim_export_merge_vars("PATH", prefix, FAKE_SCRIPTS_DIR "/pulseaudio");
++
+         /* Try both known Vulkan ICD paths */
+         if (!shim_init_vulkan(VK_GLOB_2)) {
+                 shim_init_vulkan(VK_GLOB);
+-- 
+2.20.0
+

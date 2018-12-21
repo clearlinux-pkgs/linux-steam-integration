@@ -1,0 +1,25 @@
+From 1c3a39ebfaba3908c77e80993e543544c555a76e Mon Sep 17 00:00:00 2001
+From: David Pocina <davidpocina@gmail.com>
+Date: Sun, 20 May 2018 16:13:52 +0100
+Subject: [linux-steam-integration 11/11] Add StartupWMClass to 
+ lsi-steam.desktop
+
+---
+ data/lsi-steam.desktop | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/data/lsi-steam.desktop b/data/lsi-steam.desktop
+index 9410658..b296389 100644
+--- a/data/lsi-steam.desktop
++++ b/data/lsi-steam.desktop
+@@ -8,6 +8,7 @@ Type=Application
+ Categories=Network;FileTransfer;Game;
+ MimeType=x-scheme-handler/steam;
+ Actions=Store;Community;Library;Servers;Screenshots;News;Settings;BigPicture;Friends;
++StartupWMClass=Steam
+ 
+ [Desktop Action Store]
+ Name=Store
+-- 
+2.20.0
+

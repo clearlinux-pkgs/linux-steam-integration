@@ -1,0 +1,11 @@
+0001-Resync-po.patch
+0002-intercept-Allow-disabling-build-time-the-udev-redire.patch
+0003-Revert-intercept-Allow-disabling-build-time-the-udev.patch
+0004-Add-new-snapd-pulseaudio-script-workaround.patch
+0005-shim-When-in-snapd-mode-chdir-to-SNAP_USER_COMMON.patch
+0006-redirect-Add-new-override-on-getpwuid.patch
+0007-redirect-We-might-return-NULL-here.patch
+0008-Fix-incorrect-snap-name-fixes-issue-50.patch
+0009-shim-Remove-legacy-non-GLVND-path-support-for-snapd-.patch
+0010-intercept-Support-new-sonames-in-Feral-s-Tomb-Raider.patch
+0011-Add-StartupWMClass-to-lsi-steam.desktop.patch
