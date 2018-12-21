@@ -6,7 +6,7 @@
 #
 Name     : linux-steam-integration
 Version  : 0.7.2
-Release  : 11
+Release  : 12
 URL      : https://github.com/solus-project/linux-steam-integration/releases/download/v0.7.2/linux-steam-integration-0.7.2.tar.xz
 Source0  : https://github.com/solus-project/linux-steam-integration/releases/download/v0.7.2/linux-steam-integration-0.7.2.tar.xz
 Source99 : https://github.com/solus-project/linux-steam-integration/releases/download/v0.7.2/linux-steam-integration-0.7.2.tar.xz.asc
@@ -14,6 +14,7 @@ Summary  : Common C library functions
 Group    : Development/Tools
 License  : LGPL-2.1
 Requires: linux-steam-integration-bin = %{version}-%{release}
+Requires: linux-steam-integration-data = %{version}-%{release}
 Requires: linux-steam-integration-lib = %{version}-%{release}
 Requires: linux-steam-integration-license = %{version}-%{release}
 Requires: linux-steam-integration-locales = %{version}-%{release}
@@ -31,15 +32,25 @@ to get games working, and fixes long standing bugs in both games and the client.
 %package bin
 Summary: bin components for the linux-steam-integration package.
 Group: Binaries
+Requires: linux-steam-integration-data = %{version}-%{release}
 Requires: linux-steam-integration-license = %{version}-%{release}
 
 %description bin
 bin components for the linux-steam-integration package.
 
 
+%package data
+Summary: data components for the linux-steam-integration package.
+Group: Data
+
+%description data
+data components for the linux-steam-integration package.
+
+
 %package lib
 Summary: lib components for the linux-steam-integration package.
 Group: Libraries
+Requires: linux-steam-integration-data = %{version}-%{release}
 Requires: linux-steam-integration-license = %{version}-%{release}
 
 %description lib
@@ -70,8 +81,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1544549265
-CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain -Dwith-steam-binary=/usr/bin/steam  builddir
+export SOURCE_DATE_EPOCH=1545392377
+CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain -Dwith-steam-binary=/usr/bin/steam -Dwith-new-libcxx-abi=true -Dwith-frontend=true  builddir
 ninja -v -C builddir
 
 %install
@@ -87,7 +98,12 @@ DESTDIR=%{buildroot} ninja -C builddir install
 %files bin
 %defattr(-,root,root,-)
 /usr/bin/lsi-exec
+/usr/bin/lsi-settings
 /usr/bin/steam
+
+%files data
+%defattr(-,root,root,-)
+/usr/share/applications/lsi-settings.desktop
 
 %files lib
 %defattr(-,root,root,-)

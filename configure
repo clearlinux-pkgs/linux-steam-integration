@@ -1,1 +1,1 @@
--Dwith-steam-binary=/usr/bin/steam
+-Dwith-steam-binary=/usr/bin/steam -Dwith-new-libcxx-abi=true -Dwith-frontend=true
