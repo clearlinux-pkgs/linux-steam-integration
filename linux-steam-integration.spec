@@ -6,7 +6,7 @@
 #
 Name     : linux-steam-integration
 Version  : 0.7.2
-Release  : 13
+Release  : 14
 URL      : https://github.com/solus-project/linux-steam-integration/releases/download/v0.7.2/linux-steam-integration-0.7.2.tar.xz
 Source0  : https://github.com/solus-project/linux-steam-integration/releases/download/v0.7.2/linux-steam-integration-0.7.2.tar.xz
 Source99 : https://github.com/solus-project/linux-steam-integration/releases/download/v0.7.2/linux-steam-integration-0.7.2.tar.xz.asc
@@ -19,6 +19,13 @@ Requires: linux-steam-integration-lib = %{version}-%{release}
 Requires: linux-steam-integration-license = %{version}-%{release}
 Requires: linux-steam-integration-locales = %{version}-%{release}
 BuildRequires : buildreq-meson
+BuildRequires : gcc-dev32
+BuildRequires : gcc-libgcc32
+BuildRequires : gcc-libstdc++32
+BuildRequires : glibc-dev32
+BuildRequires : glibc-libc32
+BuildRequires : pkgconfig(32check)
+BuildRequires : pkgconfig(32glib-2.0)
 BuildRequires : pkgconfig(check)
 BuildRequires : pkgconfig(gtk+-3.0)
 Patch1: 0001-Resync-po.patch
@@ -68,6 +75,16 @@ Requires: linux-steam-integration-license = %{version}-%{release}
 lib components for the linux-steam-integration package.
 
 
+%package lib32
+Summary: lib32 components for the linux-steam-integration package.
+Group: Default
+Requires: linux-steam-integration-data = %{version}-%{release}
+Requires: linux-steam-integration-license = %{version}-%{release}
+
+%description lib32
+lib32 components for the linux-steam-integration package.
+
+
 %package license
 Summary: license components for the linux-steam-integration package.
 Group: Default
@@ -97,20 +114,41 @@ locales components for the linux-steam-integration package.
 %patch9 -p1
 %patch10 -p1
 %patch11 -p1
+pushd ..
+cp -a linux-steam-integration-0.7.2 build32
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1545392709
+export SOURCE_DATE_EPOCH=1545399215
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain -Dwith-steam-binary=/usr/bin/steam -Dwith-new-libcxx-abi=true -Dwith-frontend=true  builddir
 ninja -v -C builddir
+pushd ../build32
+export PKG_CONFIG_PATH="/usr/lib32/pkgconfig"
+export ASFLAGS="$ASFLAGS --32"
+export CFLAGS="$CFLAGS -m32"
+export CXXFLAGS="$CXXFLAGS -m32"
+export LDFLAGS="$LDFLAGS -m32"
+meson --libdir=/usr/lib32 --prefix /usr --buildtype=plain -Dwith-steam-binary=/usr/bin/steam -Dwith-new-libcxx-abi=true -Dwith-frontend=true -Dwith-shim=none -Dwith-new-libcxx-abi=true -Dwith-frontend=false builddir
+ninja -v -C builddir
+popd
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/linux-steam-integration
 cp LICENSE %{buildroot}/usr/share/package-licenses/linux-steam-integration/LICENSE
 cp src/libnica/LICENSE.LGPL2.1 %{buildroot}/usr/share/package-licenses/linux-steam-integration/src_libnica_LICENSE.LGPL2.1
+pushd ../build32
+DESTDIR=%{buildroot} ninja -C builddir install
+if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
+then
+pushd %{buildroot}/usr/lib32/pkgconfig
+for i in *.pc ; do ln -s $i 32$i ; done
+popd
+fi
+popd
 DESTDIR=%{buildroot} ninja -C builddir install
 %find_lang linux-steam-integration
 
@@ -131,6 +169,11 @@ DESTDIR=%{buildroot} ninja -C builddir install
 %defattr(-,root,root,-)
 /usr/lib64/liblsi-intercept.so
 /usr/lib64/liblsi-redirect.so
+
+%files lib32
+%defattr(-,root,root,-)
+/usr/lib32/liblsi-intercept.so
+/usr/lib32/liblsi-redirect.so
 
 %files license
 %defattr(0644,root,root,0755)
