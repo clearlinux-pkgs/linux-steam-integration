@@ -9,3 +9,17 @@
 0009-shim-Remove-legacy-non-GLVND-path-support-for-snapd-.patch
 0010-intercept-Support-new-sonames-in-Feral-s-Tomb-Raider.patch
 0011-Add-StartupWMClass-to-lsi-steam.desktop.patch
+0012-Update-README.md-for-this-fork.patch
+0013-Improve-formatting-in-README.patch
+0014-frontend-Apply-update-format.sh.patch
+0015-mkgobuildy-Gracefully-handle-missing-linux32-availab.patch
+0016-shim-Use-setarch-instead-of-relying-on-linux32-link.patch
+0018-Update-copyright-ranges-to-be-correct.patch
+0019-mkgobuildy-Clean-up-and-reorganise.patch
+0020-Add-an-initial-testing-list-to-help-with-next-releas.patch
+0021-Add-a-couple-of-games-to-the-test-list.patch
+0022-TEST_LIST-Don-t-Starve-requires-curl-gnutls-working-.patch
+0023-TEST_LIST-Document-weirdness-with-Don-t-Starve-s-SDL.patch
+0024-Update-TEST_LIST-for-Don-t-Starve-weirdness.patch
+0025-intercept-Only-blacklist-SDL-overrides-on-64-bit-nat.patch
+0026-TEST_LIST-Document-fact-that-Don-t-Starve-works-now.patch

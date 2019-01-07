@@ -1,0 +1,27 @@
+From 6a5fff703cddb9d816da0a761b54884bde9e8251 Mon Sep 17 00:00:00 2001
+From: Ikey Doherty <ikey.doherty@intel.com>
+Date: Fri, 4 Jan 2019 12:10:29 +0000
+Subject: [linux-steam-integration 22/26] TEST_LIST: Don't Starve requires
+ curl-gnutls, working on it atm.
+
+Signed-off-by: Ikey Doherty <ikey.doherty@intel.com>
+---
+ TEST_LIST | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/TEST_LIST b/TEST_LIST
+index c47fd46..0a715fa 100644
+--- a/TEST_LIST
++++ b/TEST_LIST
+@@ -1,7 +1,7 @@
+ Initial test list for next release of LSI
+ 
+  - DOTA 2
+- - Don't Starve Together
++ - Don't Starve Together (Requires curl-gnutls - CLR test pending)
+  - Cities:Skylines
+  - Various Source titles (L4D2, Portal, etc)
+  - Various Feral titles (2018/2019 kits)
+-- 
+2.20.0
+

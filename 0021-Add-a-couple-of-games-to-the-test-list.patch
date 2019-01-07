@@ -1,0 +1,29 @@
+From 11e9ff21377e5099fe8105f7001be792a11f858d Mon Sep 17 00:00:00 2001
+From: Ikey Doherty <ikey.doherty@intel.com>
+Date: Wed, 2 Jan 2019 14:41:53 +0000
+Subject: [linux-steam-integration 21/26] Add a couple of games to the test
+ list
+
+Signed-off-by: Ikey Doherty <ikey.doherty@intel.com>
+---
+ TEST_LIST | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/TEST_LIST b/TEST_LIST
+index 39c6ba7..c47fd46 100644
+--- a/TEST_LIST
++++ b/TEST_LIST
+@@ -5,7 +5,9 @@ Initial test list for next release of LSI
+  - Cities:Skylines
+  - Various Source titles (L4D2, Portal, etc)
+  - Various Feral titles (2018/2019 kits)
++ - Stardew Valley
++ - Rocket League
+ 
+-Next release:
+++1 release:
+ 
+  - Proton compat
+-- 
+2.20.0
+

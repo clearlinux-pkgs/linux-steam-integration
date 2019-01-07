@@ -1,7 +1,7 @@
 From 5c809fdc07358a540571cbb223db89d27c284fd5 Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey@solus-project.com>
 Date: Sun, 24 Dec 2017 18:29:05 +0000
-Subject: [linux-steam-integration 06/11] redirect: Add new override on
+Subject: [linux-steam-integration 06/26] redirect: Add new override on
  getpwuid
 
 This is required for some Aspyr ports which will form their own fixed

@@ -1,7 +1,7 @@
 From 46c423d0651b7a467acd945fa539f76b37db7977 Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey@solus-project.com>
 Date: Mon, 29 Jan 2018 18:28:07 +0000
-Subject: [linux-steam-integration 09/11] shim: Remove legacy (non GLVND) path
+Subject: [linux-steam-integration 09/26] shim: Remove legacy (non GLVND) path
  support for snapd runtime
 
 Signed-off-by: Ikey Doherty <ikey@solus-project.com>

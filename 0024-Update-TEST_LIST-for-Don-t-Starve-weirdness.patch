@@ -1,0 +1,30 @@
+From 6bc12dde6ec52d744c39d7909df515d77a312d28 Mon Sep 17 00:00:00 2001
+From: Ikey Doherty <ikey.doherty@intel.com>
+Date: Sun, 6 Jan 2019 13:05:20 +0000
+Subject: [linux-steam-integration 24/26] Update TEST_LIST for Don't Starve
+ weirdness
+
+Signed-off-by: Ikey Doherty <ikey.doherty@intel.com>
+---
+ TEST_LIST | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/TEST_LIST b/TEST_LIST
+index e444271..b2a64c3 100644
+--- a/TEST_LIST
++++ b/TEST_LIST
+@@ -3,8 +3,9 @@ Initial test list for next release of LSI
+  - DOTA 2
+  - Don't Starve Together
+         - Requires curl-gnutls (integrating into CLR now)
+-        - Vendored SDL somehow makes input work properly. Investigate diff
+-          between host SDLs and vendored SDL for this case.
++        - Vendored SDL is patched in non upstreamable fashion
++          https://forums.kleientertainment.com/forums/topic/30218-crash-on-linux-steam-without-error/?page=0&tab=comments#comment-386249
++          We'll need to allow certain games to vendor SDL now.
+  - Cities:Skylines
+  - Various Source titles (L4D2, Portal, etc)
+  - Various Feral titles (2018/2019 kits)
+-- 
+2.20.0
+

@@ -6,7 +6,7 @@
 #
 Name     : linux-steam-integration
 Version  : 0.7.2
-Release  : 14
+Release  : 15
 URL      : https://github.com/solus-project/linux-steam-integration/releases/download/v0.7.2/linux-steam-integration-0.7.2.tar.xz
 Source0  : https://github.com/solus-project/linux-steam-integration/releases/download/v0.7.2/linux-steam-integration-0.7.2.tar.xz
 Source99 : https://github.com/solus-project/linux-steam-integration/releases/download/v0.7.2/linux-steam-integration-0.7.2.tar.xz.asc
@@ -39,6 +39,20 @@ Patch8: 0008-Fix-incorrect-snap-name-fixes-issue-50.patch
 Patch9: 0009-shim-Remove-legacy-non-GLVND-path-support-for-snapd-.patch
 Patch10: 0010-intercept-Support-new-sonames-in-Feral-s-Tomb-Raider.patch
 Patch11: 0011-Add-StartupWMClass-to-lsi-steam.desktop.patch
+Patch12: 0012-Update-README.md-for-this-fork.patch
+Patch13: 0013-Improve-formatting-in-README.patch
+Patch14: 0014-frontend-Apply-update-format.sh.patch
+Patch15: 0015-mkgobuildy-Gracefully-handle-missing-linux32-availab.patch
+Patch16: 0016-shim-Use-setarch-instead-of-relying-on-linux32-link.patch
+Patch17: 0018-Update-copyright-ranges-to-be-correct.patch
+Patch18: 0019-mkgobuildy-Clean-up-and-reorganise.patch
+Patch19: 0020-Add-an-initial-testing-list-to-help-with-next-releas.patch
+Patch20: 0021-Add-a-couple-of-games-to-the-test-list.patch
+Patch21: 0022-TEST_LIST-Don-t-Starve-requires-curl-gnutls-working-.patch
+Patch22: 0023-TEST_LIST-Document-weirdness-with-Don-t-Starve-s-SDL.patch
+Patch23: 0024-Update-TEST_LIST-for-Don-t-Starve-weirdness.patch
+Patch24: 0025-intercept-Only-blacklist-SDL-overrides-on-64-bit-nat.patch
+Patch25: 0026-TEST_LIST-Document-fact-that-Don-t-Starve-works-now.patch
 
 %description
 linux-steam-integration
@@ -114,6 +128,20 @@ locales components for the linux-steam-integration package.
 %patch9 -p1
 %patch10 -p1
 %patch11 -p1
+%patch12 -p1
+%patch13 -p1
+%patch14 -p1
+%patch15 -p1
+%patch16 -p1
+%patch17 -p1
+%patch18 -p1
+%patch19 -p1
+%patch20 -p1
+%patch21 -p1
+%patch22 -p1
+%patch23 -p1
+%patch24 -p1
+%patch25 -p1
 pushd ..
 cp -a linux-steam-integration-0.7.2 build32
 popd
@@ -123,15 +151,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1545399215
+export SOURCE_DATE_EPOCH=1547031148
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain -Dwith-steam-binary=/usr/bin/steam -Dwith-new-libcxx-abi=true -Dwith-frontend=true  builddir
 ninja -v -C builddir
 pushd ../build32
 export PKG_CONFIG_PATH="/usr/lib32/pkgconfig"
-export ASFLAGS="$ASFLAGS --32"
-export CFLAGS="$CFLAGS -m32"
-export CXXFLAGS="$CXXFLAGS -m32"
-export LDFLAGS="$LDFLAGS -m32"
+export ASFLAGS="${ASFLAGS}${ASFLAGS:+ }--32"
+export CFLAGS="${CFLAGS}${CFLAGS:+ }-m32"
+export CXXFLAGS="${CXXFLAGS}${CXXFLAGS:+ }-m32"
+export LDFLAGS="${LDFLAGS}${LDFLAGS:+ }-m32"
 meson --libdir=/usr/lib32 --prefix /usr --buildtype=plain -Dwith-steam-binary=/usr/bin/steam -Dwith-new-libcxx-abi=true -Dwith-frontend=true -Dwith-shim=none -Dwith-new-libcxx-abi=true -Dwith-frontend=false builddir
 ninja -v -C builddir
 popd

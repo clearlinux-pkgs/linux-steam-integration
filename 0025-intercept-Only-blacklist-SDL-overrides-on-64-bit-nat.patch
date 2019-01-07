@@ -1,0 +1,45 @@
+From c4ded161159d2d6faa5a1dba45af8426738632b7 Mon Sep 17 00:00:00 2001
+From: Ikey Doherty <ikey.doherty@intel.com>
+Date: Mon, 7 Jan 2019 11:07:15 +0000
+Subject: [linux-steam-integration 25/26] intercept: Only blacklist SDL
+ overrides on 64-bit native
+
+Instead of the potential ugly route of whitelisting (which still might be
+needed in future) we'll allow the SDL2 core library to be overriden only
+on 32-bit builds of Steam games.
+
+This has the interesting side-effect of enabling Don't Starve to work
+correctly, as it ships a custom patched (incompatible ABI) version of
+SDL2 to change the mouse event handling.
+
+If it turns out random 32-bit games break by using their own old and
+unmodified builds of SDL2, we'll implement whitelisting. For now, this
+change should suffice.
+
+Signed-off-by: Ikey Doherty <ikey.doherty@intel.com>
+---
+ src/intercept/main.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/src/intercept/main.c b/src/intercept/main.c
+index 5fa77c5..b8a99b9 100644
+--- a/src/intercept/main.c
++++ b/src/intercept/main.c
+@@ -119,7 +119,14 @@ static const char *vendor_blacklist[] = {
+ 
+         /* Ensure we don't match weird made up cruft like "libSDL2_locale" */
+         "libSDL-1.2",
++
++#if UINTPTR_MAX == 0xffffffffffffffff
++        /* Only blacklist SDL on native 64-bit builds
++         * 32-bit builds tend to do weird stuff, like ship incompatible
++         * patched builds of libSDL (Don't Starve, for example)
++         */
+         "libSDL2-2",
++#endif
+         "libSDL2_ttf",
+         "libSDL_ttf",
+         "libSDL2_image",
+-- 
+2.20.0
+

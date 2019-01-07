@@ -1,7 +1,7 @@
 From 62bd3dffb7e2a6815c434a20848d25f050c53a38 Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey@solus-project.com>
 Date: Sun, 24 Dec 2017 18:33:22 +0000
-Subject: [linux-steam-integration 07/11] redirect: We might return NULL here.
+Subject: [linux-steam-integration 07/26] redirect: We might return NULL here.
 
 Signed-off-by: Ikey Doherty <ikey@solus-project.com>
 ---
