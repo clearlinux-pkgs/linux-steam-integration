@@ -1,0 +1,33 @@
+From 89e7b7cfbbdf8553c0661d48b0fa1eed66bef725 Mon Sep 17 00:00:00 2001
+From: Ikey Doherty <ikey.doherty@intel.com>
+Date: Tue, 8 Jan 2019 10:53:02 +0000
+Subject: [linux-steam-integration 31/31] redirect: Avoid use of uninitialised
+ LsiRedirectOperation
+
+While admittedly there is no case of us using any invalid LsiRedirectOperation,
+there exists the future possibility for invalid inserts into the op table
+when we encounter an unhandled op type.
+
+Knock it on the head and bail early, as appropriate.
+
+Signed-off-by: Ikey Doherty <ikey.doherty@intel.com>
+---
+ src/redirect/profile.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/redirect/profile.c b/src/redirect/profile.c
+index cd8376c..8c5c135 100644
+--- a/src/redirect/profile.c
++++ b/src/redirect/profile.c
+@@ -64,7 +64,7 @@ void lsi_redirect_profile_insert_rule(LsiRedirectProfile *self, LsiRedirect *red
+         default:
+                 lsi_log_error("Attempted insert of unknown rule into '%s'", self->name);
+                 lsi_redirect_free(redirect);
+-                break;
++                return;
+         }
+ 
+         /* Set head or prepend the rule */
+-- 
+2.20.0
+

@@ -1,8 +1,10 @@
-From 8d9aac19f631d4bf7924da34b3c0bc4cf93520cf Mon Sep 17 00:00:00 2001
+From abcb5feeaf15d310d03557d9b5824dc463228ded Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey.doherty@intel.com>
-Date: Mon, 7 Jan 2019 11:39:19 +0000
-Subject: [linux-steam-integration 26/31] TEST_LIST: Document fact that Don't
- Starve works now
+Date: Mon, 7 Jan 2019 12:21:06 +0000
+Subject: [linux-steam-integration 28/31] TEST_LIST: Add Oxygen Not Included as
+ working perfectly
+
+Hey, it came in a bundle deal with Don't Starve.
 
 Signed-off-by: Ikey Doherty <ikey.doherty@intel.com>
 ---
@@ -10,14 +12,14 @@ Signed-off-by: Ikey Doherty <ikey.doherty@intel.com>
  1 file changed, 1 insertion(+)
 
 diff --git a/TEST_LIST b/TEST_LIST
-index b2a64c3..7c91b61 100644
+index 7c91b61..442dd55 100644
 --- a/TEST_LIST
 +++ b/TEST_LIST
-@@ -6,6 +6,7 @@ Initial test list for next release of LSI
-         - Vendored SDL is patched in non upstreamable fashion
+@@ -7,6 +7,7 @@ Initial test list for next release of LSI
            https://forums.kleientertainment.com/forums/topic/30218-crash-on-linux-steam-without-error/?page=0&tab=comments#comment-386249
            We'll need to allow certain games to vendor SDL now.
-+          Fixed in https://github.com/clearlinux/linux-steam-integration/commit/c4ded161159d2d6faa5a1dba45af8426738632b7
+           Fixed in https://github.com/clearlinux/linux-steam-integration/commit/c4ded161159d2d6faa5a1dba45af8426738632b7
++ - Oxygen Not Included (working perfectly)
   - Cities:Skylines
   - Various Source titles (L4D2, Portal, etc)
   - Various Feral titles (2018/2019 kits)

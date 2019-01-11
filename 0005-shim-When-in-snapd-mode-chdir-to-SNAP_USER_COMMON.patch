@@ -1,7 +1,7 @@
 From e7eae9d57792936ea4cce20f91ea06404d8aba43 Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey@solus-project.com>
 Date: Sun, 24 Dec 2017 18:10:35 +0000
-Subject: [linux-steam-integration 05/26] shim: When in snapd mode, chdir to
+Subject: [linux-steam-integration 05/31] shim: When in snapd mode, chdir to
  SNAP_USER_COMMON
 
 This will alleviate some weird apparmor confinement denials when trying

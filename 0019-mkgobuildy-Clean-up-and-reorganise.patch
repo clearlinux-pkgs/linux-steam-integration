@@ -1,7 +1,7 @@
 From c03d5cdff8dded22cf0a6f2b17bab3d284bc47d6 Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey.doherty@intel.com>
 Date: Tue, 1 Jan 2019 14:46:22 +0000
-Subject: [linux-steam-integration 19/26] mkgobuildy: Clean up and reorganise
+Subject: [linux-steam-integration 19/31] mkgobuildy: Clean up and reorganise
 
 Signed-off-by: Ikey Doherty <ikey.doherty@intel.com>
 ---

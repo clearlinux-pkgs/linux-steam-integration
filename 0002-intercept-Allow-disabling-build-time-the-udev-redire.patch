@@ -1,7 +1,7 @@
 From c640f2f215b4636ed99cfa4f807b38dfc25f526c Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey@solus-project.com>
 Date: Sat, 23 Dec 2017 19:52:37 +0000
-Subject: [linux-steam-integration 02/26] intercept: Allow disabling
+Subject: [linux-steam-integration 02/31] intercept: Allow disabling
  (build-time) the udev redirection
 
 Arch Linux uses a funky udev shim package which is incompatible with

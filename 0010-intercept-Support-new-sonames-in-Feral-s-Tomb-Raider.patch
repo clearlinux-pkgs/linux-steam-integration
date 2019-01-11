@@ -1,7 +1,7 @@
 From 62cf7443acb8ab9caaf00688802be50ed9caee10 Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey@solus-project.com>
 Date: Fri, 20 Apr 2018 08:47:14 +0100
-Subject: [linux-steam-integration 10/26] intercept: Support new sonames in
+Subject: [linux-steam-integration 10/31] intercept: Support new sonames in
  Feral's Tomb Raider port
 
 Signed-off-by: Ikey Doherty <ikey@solus-project.com>

@@ -1,0 +1,38 @@
+From 6963c348925b583650bd0ae1f2c6fa1c96a8c85e Mon Sep 17 00:00:00 2001
+From: Ikey Doherty <ikey.doherty@intel.com>
+Date: Mon, 7 Jan 2019 11:50:46 +0000
+Subject: [linux-steam-integration 27/31] intercept: Cleanup now new
+ clang-format is less of a PITA
+
+Old clang-format 3.8 broke the styling when using ifdefs, let's get
+it fixed up now.
+
+Signed-off-by: Ikey Doherty <ikey.doherty@intel.com>
+---
+ src/intercept/main.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/intercept/main.c b/src/intercept/main.c
+index b8a99b9..4d71c85 100644
+--- a/src/intercept/main.c
++++ b/src/intercept/main.c
+@@ -406,14 +406,15 @@ static bool lsi_override_x86_derp(const char *orig_name, const char **soname)
+             orig_name,
+             path_lookup);
+         return true;
++}
+ #else
+ static bool lsi_override_x86_derp(__lsi_unused__ const char *orig_name,
+                                   __lsi_unused__ const char **soname)
+ {
+         /* Don't perform x86 translation on 32-bit machines */
+         return false;
+-#endif
+ }
++#endif
+ 
+ /**
+  * Internal helper for path replacement to host lib
+-- 
+2.20.0
+

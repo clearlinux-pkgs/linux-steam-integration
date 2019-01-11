@@ -1,7 +1,7 @@
 From c34938a43a9da7dea96abab9f27520ce61007236 Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey@solus-project.com>
 Date: Thu, 4 Jan 2018 21:06:30 +0000
-Subject: [linux-steam-integration 08/26] Fix incorrect snap name (fixes issue
+Subject: [linux-steam-integration 08/31] Fix incorrect snap name (fixes issue
  #50)
 
 Signed-off-by: Ikey Doherty <ikey@solus-project.com>

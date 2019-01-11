@@ -1,7 +1,7 @@
 From 9624bde1b9101bf7fa7c9b7d40d1d2700a508df8 Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey.doherty@intel.com>
 Date: Tue, 1 Jan 2019 14:04:34 +0000
-Subject: [linux-steam-integration 15/26] mkgobuildy: Gracefully handle missing
+Subject: [linux-steam-integration 15/31] mkgobuildy: Gracefully handle missing
  linux32 availability
 
 Signed-off-by: Ikey Doherty <ikey.doherty@intel.com>

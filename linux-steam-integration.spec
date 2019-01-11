@@ -6,7 +6,7 @@
 #
 Name     : linux-steam-integration
 Version  : 0.7.2
-Release  : 15
+Release  : 16
 URL      : https://github.com/solus-project/linux-steam-integration/releases/download/v0.7.2/linux-steam-integration-0.7.2.tar.xz
 Source0  : https://github.com/solus-project/linux-steam-integration/releases/download/v0.7.2/linux-steam-integration-0.7.2.tar.xz
 Source99 : https://github.com/solus-project/linux-steam-integration/releases/download/v0.7.2/linux-steam-integration-0.7.2.tar.xz.asc
@@ -53,6 +53,11 @@ Patch22: 0023-TEST_LIST-Document-weirdness-with-Don-t-Starve-s-SDL.patch
 Patch23: 0024-Update-TEST_LIST-for-Don-t-Starve-weirdness.patch
 Patch24: 0025-intercept-Only-blacklist-SDL-overrides-on-64-bit-nat.patch
 Patch25: 0026-TEST_LIST-Document-fact-that-Don-t-Starve-works-now.patch
+Patch26: 0027-intercept-Cleanup-now-new-clang-format-is-less-of-a-.patch
+Patch27: 0028-TEST_LIST-Add-Oxygen-Not-Included-as-working-perfect.patch
+Patch28: 0029-meson-Start-a-cleanup-of-the-build-files.patch
+Patch29: 0030-Properly-set-preload-libs-in-conf.patch
+Patch30: 0031-redirect-Avoid-use-of-uninitialised-LsiRedirectOpera.patch
 
 %description
 linux-steam-integration
@@ -142,6 +147,11 @@ locales components for the linux-steam-integration package.
 %patch23 -p1
 %patch24 -p1
 %patch25 -p1
+%patch26 -p1
+%patch27 -p1
+%patch28 -p1
+%patch29 -p1
+%patch30 -p1
 pushd ..
 cp -a linux-steam-integration-0.7.2 build32
 popd
@@ -151,7 +161,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1547031148
+export SOURCE_DATE_EPOCH=1547224143
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain -Dwith-steam-binary=/usr/bin/steam -Dwith-new-libcxx-abi=true -Dwith-frontend=true  builddir
 ninja -v -C builddir
 pushd ../build32

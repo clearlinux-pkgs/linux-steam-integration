@@ -1,7 +1,7 @@
 From fc9ae2e9c2294fc1f65b61ce9f588e6537e029ae Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey.doherty@intel.com>
 Date: Tue, 1 Jan 2019 14:14:39 +0000
-Subject: [linux-steam-integration 16/26] shim: Use `setarch` instead of
+Subject: [linux-steam-integration 16/31] shim: Use `setarch` instead of
  relying on `linux32` link
 
 On some distributions, `linux32` command is not readily available in the

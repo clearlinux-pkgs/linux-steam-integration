@@ -1,7 +1,7 @@
 From 6bc12dde6ec52d744c39d7909df515d77a312d28 Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey.doherty@intel.com>
 Date: Sun, 6 Jan 2019 13:05:20 +0000
-Subject: [linux-steam-integration 24/26] Update TEST_LIST for Don't Starve
+Subject: [linux-steam-integration 24/31] Update TEST_LIST for Don't Starve
  weirdness
 
 Signed-off-by: Ikey Doherty <ikey.doherty@intel.com>

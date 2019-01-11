@@ -1,7 +1,7 @@
 From c4ded161159d2d6faa5a1dba45af8426738632b7 Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey.doherty@intel.com>
 Date: Mon, 7 Jan 2019 11:07:15 +0000
-Subject: [linux-steam-integration 25/26] intercept: Only blacklist SDL
+Subject: [linux-steam-integration 25/31] intercept: Only blacklist SDL
  overrides on 64-bit native
 
 Instead of the potential ugly route of whitelisting (which still might be

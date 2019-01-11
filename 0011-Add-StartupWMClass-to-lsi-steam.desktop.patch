@@ -1,7 +1,7 @@
 From 1c3a39ebfaba3908c77e80993e543544c555a76e Mon Sep 17 00:00:00 2001
 From: David Pocina <davidpocina@gmail.com>
 Date: Sun, 20 May 2018 16:13:52 +0100
-Subject: [linux-steam-integration 11/26] Add StartupWMClass to 
+Subject: [linux-steam-integration 11/31] Add StartupWMClass to 
  lsi-steam.desktop
 
 ---

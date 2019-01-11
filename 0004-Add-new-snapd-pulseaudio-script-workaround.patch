@@ -1,7 +1,7 @@
 From a1c22351207da6a3c6cced00133828b9b1cfe9ff Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey@solus-project.com>
 Date: Sun, 24 Dec 2017 15:10:29 +0000
-Subject: [linux-steam-integration 04/26] Add new snapd pulseaudio script
+Subject: [linux-steam-integration 04/31] Add new snapd pulseaudio script
  workaround
 
 This is as yet untested, but the basic idea is that when games call out

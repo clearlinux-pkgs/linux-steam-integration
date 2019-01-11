@@ -1,7 +1,7 @@
 From 5b59075ec02032f7ac7dcafe26bf649d68c01947 Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey@solus-project.com>
 Date: Sat, 23 Dec 2017 21:30:54 +0000
-Subject: [linux-steam-integration 03/26] Revert "intercept: Allow disabling
+Subject: [linux-steam-integration 03/31] Revert "intercept: Allow disabling
  (build-time) the udev redirection"
 
 This reverts commit c640f2f215b4636ed99cfa4f807b38dfc25f526c.

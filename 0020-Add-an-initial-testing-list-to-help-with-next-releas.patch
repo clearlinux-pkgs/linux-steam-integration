@@ -1,7 +1,7 @@
 From 05343c140f3f0e11ea35cf5008ac939822575a3c Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey.doherty@intel.com>
 Date: Wed, 2 Jan 2019 14:35:10 +0000
-Subject: [linux-steam-integration 20/26] Add an initial testing list to help
+Subject: [linux-steam-integration 20/31] Add an initial testing list to help
  with next releases
 
 Signed-off-by: Ikey Doherty <ikey.doherty@intel.com>

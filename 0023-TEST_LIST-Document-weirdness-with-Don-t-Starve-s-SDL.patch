@@ -1,7 +1,7 @@
 From 8968b69788fa80541772bf8ed7c31b21df0289af Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey.doherty@intel.com>
 Date: Fri, 4 Jan 2019 20:50:31 +0000
-Subject: [linux-steam-integration 23/26] TEST_LIST: Document weirdness with
+Subject: [linux-steam-integration 23/31] TEST_LIST: Document weirdness with
  Don't Starve's SDL library
 
 Signed-off-by: Ikey Doherty <ikey.doherty@intel.com>

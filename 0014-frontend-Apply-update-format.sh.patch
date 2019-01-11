@@ -1,7 +1,7 @@
 From a951a4991033f428c5ba710f687a4142469b40ae Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey.doherty@intel.com>
 Date: Fri, 21 Dec 2018 14:22:48 +0000
-Subject: [linux-steam-integration 14/26] frontend: Apply update-format.sh
+Subject: [linux-steam-integration 14/31] frontend: Apply update-format.sh
 
 Signed-off-by: Ikey Doherty <ikey.doherty@intel.com>
 ---

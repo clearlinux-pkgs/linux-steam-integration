@@ -1,7 +1,7 @@
 From 4c68fcc7d7d8a92555376ab02e9edb6e4375b2d4 Mon Sep 17 00:00:00 2001
 From: Ikey Doherty <ikey.doherty@intel.com>
 Date: Tue, 1 Jan 2019 14:26:14 +0000
-Subject: [linux-steam-integration 18/26] Update copyright ranges to be correct
+Subject: [linux-steam-integration 18/31] Update copyright ranges to be correct
 
 Previous copyright assignment was to myself but the range doesn't account
 for the project WIPs and lifetime, so retroactively fit them to the right

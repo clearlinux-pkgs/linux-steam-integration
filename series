@@ -23,3 +23,8 @@
 0024-Update-TEST_LIST-for-Don-t-Starve-weirdness.patch
 0025-intercept-Only-blacklist-SDL-overrides-on-64-bit-nat.patch
 0026-TEST_LIST-Document-fact-that-Don-t-Starve-works-now.patch
+0027-intercept-Cleanup-now-new-clang-format-is-less-of-a-.patch
+0028-TEST_LIST-Add-Oxygen-Not-Included-as-working-perfect.patch
+0029-meson-Start-a-cleanup-of-the-build-files.patch
+0030-Properly-set-preload-libs-in-conf.patch
+0031-redirect-Avoid-use-of-uninitialised-LsiRedirectOpera.patch
