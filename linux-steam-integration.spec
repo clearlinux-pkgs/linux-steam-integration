@@ -6,7 +6,7 @@
 #
 Name     : linux-steam-integration
 Version  : 0.7.3
-Release  : 17
+Release  : 18
 URL      : https://github.com/clearlinux/linux-steam-integration/releases/download/v0.7.3/linux-steam-integration-0.7.3.tar.xz
 Source0  : https://github.com/clearlinux/linux-steam-integration/releases/download/v0.7.3/linux-steam-integration-0.7.3.tar.xz
 Source99 : https://github.com/clearlinux/linux-steam-integration/releases/download/v0.7.3/linux-steam-integration-0.7.3.tar.xz.asc
@@ -101,7 +101,8 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1547555093
+export SOURCE_DATE_EPOCH=1553104826
+export LDFLAGS="${LDFLAGS} -fno-lto"
 CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain -Dwith-steam-binary=/usr/bin/steam -Dwith-new-libcxx-abi=true -Dwith-frontend=true  builddir
 ninja -v -C builddir
 pushd ../build32
