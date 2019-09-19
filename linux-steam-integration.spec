@@ -6,10 +6,10 @@
 #
 Name     : linux-steam-integration
 Version  : 0.7.3
-Release  : 20
+Release  : 21
 URL      : https://github.com/clearlinux/linux-steam-integration/releases/download/v0.7.3/linux-steam-integration-0.7.3.tar.xz
 Source0  : https://github.com/clearlinux/linux-steam-integration/releases/download/v0.7.3/linux-steam-integration-0.7.3.tar.xz
-Source99 : https://github.com/clearlinux/linux-steam-integration/releases/download/v0.7.3/linux-steam-integration-0.7.3.tar.xz.asc
+Source1 : https://github.com/clearlinux/linux-steam-integration/releases/download/v0.7.3/linux-steam-integration-0.7.3.tar.xz.asc
 Summary  : Common C library functions
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -100,22 +100,22 @@ popd
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1560200392
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1568869693
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
 export FFLAGS="$CFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
-CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --prefix /usr --buildtype=plain -Dwith-steam-binary=/usr/bin/steam -Dwith-new-libcxx-abi=true -Dwith-frontend=true  builddir
+CFLAGS="$CFLAGS" CXXFLAGS="$CXXFLAGS" LDFLAGS="$LDFLAGS" meson --libdir=lib64 --prefix=/usr --buildtype=plain -Dwith-steam-binary=/usr/bin/steam -Dwith-new-libcxx-abi=true -Dwith-frontend=true  builddir
 ninja -v -C builddir
 pushd ../build32
 export PKG_CONFIG_PATH="/usr/lib32/pkgconfig"
 export ASFLAGS="${ASFLAGS}${ASFLAGS:+ }--32"
-export CFLAGS="${CFLAGS}${CFLAGS:+ }-m32"
-export CXXFLAGS="${CXXFLAGS}${CXXFLAGS:+ }-m32"
-export LDFLAGS="${LDFLAGS}${LDFLAGS:+ }-m32"
-meson --libdir=/usr/lib32 --prefix /usr --buildtype=plain -Dwith-steam-binary=/usr/bin/steam -Dwith-new-libcxx-abi=true -Dwith-frontend=true -Dwith-shim=none -Dwith-new-libcxx-abi=true -Dwith-frontend=false builddir
+export CFLAGS="${CFLAGS}${CFLAGS:+ }-m32 -mstackrealign"
+export CXXFLAGS="${CXXFLAGS}${CXXFLAGS:+ }-m32 -mstackrealign"
+export LDFLAGS="${LDFLAGS}${LDFLAGS:+ }-m32 -mstackrealign"
+meson --libdir=lib32 --prefix=/usr --buildtype=plain -Dwith-steam-binary=/usr/bin/steam -Dwith-new-libcxx-abi=true -Dwith-frontend=true -Dwith-shim=none -Dwith-new-libcxx-abi=true -Dwith-frontend=false builddir
 ninja -v -C builddir
 popd
 
