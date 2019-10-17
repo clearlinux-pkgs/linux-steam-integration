@@ -6,7 +6,7 @@
 #
 Name     : linux-steam-integration
 Version  : 0.7.3
-Release  : 21
+Release  : 22
 URL      : https://github.com/clearlinux/linux-steam-integration/releases/download/v0.7.3/linux-steam-integration-0.7.3.tar.xz
 Source0  : https://github.com/clearlinux/linux-steam-integration/releases/download/v0.7.3/linux-steam-integration-0.7.3.tar.xz
 Source1 : https://github.com/clearlinux/linux-steam-integration/releases/download/v0.7.3/linux-steam-integration-0.7.3.tar.xz.asc
@@ -101,7 +101,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1568869693
+export SOURCE_DATE_EPOCH=1571344657
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -121,8 +121,8 @@ popd
 
 %install
 mkdir -p %{buildroot}/usr/share/package-licenses/linux-steam-integration
-cp LICENSE %{buildroot}/usr/share/package-licenses/linux-steam-integration/LICENSE
-cp src/libnica/LICENSE.LGPL2.1 %{buildroot}/usr/share/package-licenses/linux-steam-integration/src_libnica_LICENSE.LGPL2.1
+cp %{_builddir}/linux-steam-integration-0.7.3/LICENSE %{buildroot}/usr/share/package-licenses/linux-steam-integration/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/linux-steam-integration-0.7.3/src/libnica/LICENSE.LGPL2.1 %{buildroot}/usr/share/package-licenses/linux-steam-integration/01a6b4bf79aca9b556822601186afab86e8c4fbf
 pushd ../build32
 DESTDIR=%{buildroot} ninja -C builddir install
 if [ -d  %{buildroot}/usr/lib32/pkgconfig ]
@@ -160,8 +160,7 @@ DESTDIR=%{buildroot} ninja -C builddir install
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/linux-steam-integration/LICENSE
-/usr/share/package-licenses/linux-steam-integration/src_libnica_LICENSE.LGPL2.1
+/usr/share/package-licenses/linux-steam-integration/01a6b4bf79aca9b556822601186afab86e8c4fbf
 
 %files locales -f linux-steam-integration.lang
 %defattr(-,root,root,-)
